@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Gber</string>
+    <string name="AUser">Username</string>
+    <string name="APass">Password</string>
+    <string name="BPass">Confirm Password</string>
+    <string name="ALogin">Login</string>
+    <string name="ARegis">Register</string>
+    <string name="BSub">Submit</string>
+    <string name="BCan">Cancel</string>
+
+
+</resources>
