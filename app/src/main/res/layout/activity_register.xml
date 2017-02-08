@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText" />
+            android:id="@+id/edFirst" />
 
         <TextView
             android:text="LastName"
@@ -83,20 +83,21 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText2" />
+            android:id="@+id/edLast" />
 
         <TextView
-            android:text="TextView"
+            android:text="Address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView8" />
+            android:id="@+id/textView8"
+            android:textStyle="normal|bold" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText3" />
+            android:id="@+id/edAddress" />
 
         <LinearLayout
             android:orientation="horizontal"

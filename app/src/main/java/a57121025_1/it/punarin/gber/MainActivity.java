@@ -23,8 +23,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Dialog regis = new Dialog(MainActivity.this);
-        regis.setContentView(R.layout.popupregister);
+//        final Dialog regis = new Dialog(MainActivity.this);
+//        regis.setContentView(R.layout.popupregister);
+
 
         btnUser = (Button) findViewById(R.id.btnLogin);
         btnRegis = (Button) findViewById(R.id.btnRegis);
@@ -46,19 +47,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                regis.setCancelable(false);
-                regis.show();
-                Window regissize = regis.getWindow();
-                regissize.setLayout(LinearLayoutCompat.LayoutParams.FILL_PARENT, LinearLayoutCompat.LayoutParams.WRAP_CONTENT);
+                Intent regis = new Intent(MainActivity.this,RegisterActivity.class);
+                startActivity(regis);
             }
         });
 
-        btnCan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                regis.dismiss();
-            }
-        });
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
