@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 String DePass = "Pass";
                 String FromUser = edUser.getText().toString();
                 String FromPass = edPass.getText().toString();
+
                 if(DeUser==FromUser||DePass==FromPass){
                     if (FromUser!=DeUser){
                         Toast.makeText(MainActivity.this,"User ไม่ถูกต้อง",Toast.LENGTH_LONG).show();
