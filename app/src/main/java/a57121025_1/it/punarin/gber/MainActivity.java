@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        final Dialog regis = new Dialog(MainActivity.this);
-//        regis.setContentView(R.layout.popupregister);
+        final Dialog regis = new Dialog(MainActivity.this);
+        regis.setContentView(R.layout.activity_register);
 
 
         btnUser = (Button) findViewById(R.id.btnLogin);
