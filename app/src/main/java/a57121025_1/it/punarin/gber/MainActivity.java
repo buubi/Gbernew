@@ -12,6 +12,25 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     Button btnUser,btnRegis,btnSub,btnCan,btnLogin;
     EditText edUser,edPass,edUserre,edPassre,edPassre2;
@@ -61,6 +80,42 @@ public class MainActivity extends AppCompatActivity {
                 String DePass = "Pass";
                 String FromUser = edUser.getText().toString();
                 String FromPass = edPass.getText().toString();
+                List<NameValuePair> nv = new ArrayList<NameValuePair>();
+                HttpClient hc = new DefaultHttpClient();
+                HttpPost hp = new HttpPost("http//:punarin.coolpage.biz/android/login.php");
+                HttpResponse hr;
+                BufferedReader bf;
+                String data = "";
+                nv.add(new BasicNameValuePair("username",FromUser));
+                nv.add(new BasicNameValuePair("password",FromUser));
+                try {
+                    hp.setEntity(new UrlEncodedFormEntity(nv));
+                    hr = hc.execute(hp);
+                    bf = new BufferedReader(new InputStreamReader(hr.getEntity().getContent()));
+                    data = bf.readLine();
+                    JSONArray jsonArray = new JSONArray(data);
+                    JSONObject jObject = new JSONObject();
+                    for(int i =0;i<jsonArray.length();i++){
+                        jObject = jsonArray.getJSONObject(i);
+                        if(jObject.getString("username").equals(edUser.getText().toString())&&jObject.getString("password").equals(edPass.getText().toString())){
+                            Toast.makeText(MainActivity.this, "Welcome "+jObject.getString("full_name"), Toast.LENGTH_SHORT).show();
+                            Intent myIntent = new Intent(MainActivity.this,OrderActivity.class);
+                            startActivity(myIntent);
+                        }
+                        else
+                            Toast.makeText(MainActivity.this, "Error Login", Toast.LENGTH_SHORT).show();
+
+                    }
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                } catch (ClientProtocolException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
 
                 if(DeUser==FromUser||DePass==FromPass){
                     if (FromUser!=DeUser){
