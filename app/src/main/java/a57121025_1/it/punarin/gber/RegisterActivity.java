@@ -21,7 +21,9 @@ public class RegisterActivity extends AppCompatActivity {
         edLast = (EditText) findViewById(R.id.edLast);
 
         if(edUserre.length()==0) {
+            Toast.makeText(RegisterActivity.this,"Please Enter Username",Toast.LENGTH_LONG);
             if(edPassre.length()==0){
+                Toast.makeText(RegisterActivity.this,"Please Enter Pass",Toast.LENGTH_LONG);
                 if(edPassre2.length()==0){
                     if(edFirst.length()==0){
                         if(edLast.length()==0){
