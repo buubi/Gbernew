@@ -2,9 +2,11 @@ package a57121025_1.it.punarin.gber;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -41,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         final Dialog regis = new Dialog(MainActivity.this);
         regis.setContentView(R.layout.activity_register);
 
@@ -76,29 +79,25 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String DeUser = "User";
-                String DePass = "Pass";
-                String FromUser = edUser.getText().toString();
-                String FromPass = edPass.getText().toString();
                 List<NameValuePair> nv = new ArrayList<NameValuePair>();
                 HttpClient hc = new DefaultHttpClient();
-                HttpPost hp = new HttpPost("http//:punarin.coolpage.biz/android/login.php");
+                HttpPost hp = new HttpPost("http://punarin.coolpage.biz/android/login.php");
                 HttpResponse hr;
                 BufferedReader bf;
                 String data = "";
-                nv.add(new BasicNameValuePair("username",FromUser));
-                nv.add(new BasicNameValuePair("password",FromUser));
+                nv.add(new BasicNameValuePair("username",edUser.getText().toString()));
+                nv.add(new BasicNameValuePair("password",edPass.getText().toString()));
                 try {
                     hp.setEntity(new UrlEncodedFormEntity(nv));
                     hr = hc.execute(hp);
                     bf = new BufferedReader(new InputStreamReader(hr.getEntity().getContent()));
                     data = bf.readLine();
+                    Log.d("TEST",data);
                     JSONArray jsonArray = new JSONArray(data);
                     JSONObject jObject = new JSONObject();
                     for(int i =0;i<jsonArray.length();i++){
                         jObject = jsonArray.getJSONObject(i);
                         if(jObject.getString("username").equals(edUser.getText().toString())&&jObject.getString("password").equals(edPass.getText().toString())){
-                            Toast.makeText(MainActivity.this, "Welcome "+jObject.getString("full_name"), Toast.LENGTH_SHORT).show();
                             Intent myIntent = new Intent(MainActivity.this,OrderActivity.class);
                             startActivity(myIntent);
                         }
@@ -114,21 +113,6 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 } catch (JSONException e) {
                     e.printStackTrace();
-                }
-
-
-                if(DeUser==FromUser||DePass==FromPass){
-                    if (FromUser!=DeUser){
-                        Toast.makeText(MainActivity.this,"User ไม่ถูกต้อง",Toast.LENGTH_LONG).show();
-                    }
-                    if (DePass!=FromPass){
-                        Toast.makeText(MainActivity.this,"Pass ไม่ถูกต้อง",Toast.LENGTH_LONG).show();
-                    }
-                }
-                else{
-                    Toast.makeText(MainActivity.this,"ยินดีต้อนรับสู่ Gber",Toast.LENGTH_LONG).show();
-                    Intent Map = new Intent(MainActivity.this,MainMap.class);
-                    startActivity(Map);
                 }
             }
         });
