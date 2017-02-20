@@ -13,17 +13,129 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_height="50dp">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:text="OrderGas"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView5"
-            android:textAlignment="center"
-            android:textStyle="normal|bold"
-            android:textSize="30sp" />
+            android:layout_alignParentTop="true"
+            android:layout_height="54dp"
+            android:id="@+id/linearLayout">
+
+            <TextView
+                android:text="OrderGas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textView5"
+                android:textAlignment="center"
+                android:textStyle="normal|bold"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:text="Size"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/textView9"
+                android:layout_weight="0.99"
+                android:textStyle="normal|bold"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:gravity="center"/>
+
+            <Spinner
+                android:layout_width="198dp"
+                android:layout_height="match_parent"
+                android:id="@+id/spGas"
+                android:entries="@array/SizeGas"
+                android:textAlignment="center"
+                android:layout_weight="0.10" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="98dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:id="@+id/textView10"
+                android:textStyle="normal|bold"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:text="Do you have a Gas Tank?" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:text="Don't Have"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdDont"
+                    android:layout_weight="1"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:text="Have"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdHave"
+                    android:layout_weight="1" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <TextView
+                android:text="Total Price "
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:id="@+id/textView14"
+                android:layout_weight="0.32"
+                android:textStyle="normal|bold"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:gravity="center"/>
+
+            <TextView
+                android:text="None"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:id="@+id/tvTotalprice"
+                android:layout_weight="1.00"
+                android:textStyle="normal|bold"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:text="Confirm Order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnConfirm" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

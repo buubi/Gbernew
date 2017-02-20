@@ -7,6 +7,12 @@
     <string name="ARegis">Register</string>
     <string name="BSub">Submit</string>
     <string name="BCan">Cancel</string>
+    <string-array name="SizeGas">
+        <item> 8 KG.(250 Bath.)</item>
+        <item> 15 KG.(400Bath.)</item>
+        <item> 48 KG.(1100Bath.)</item>
+    </string-array>
+
 
 
 </resources>
