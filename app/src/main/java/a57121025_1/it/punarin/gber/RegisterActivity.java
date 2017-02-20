@@ -2,6 +2,7 @@ package a57121025_1.it.punarin.gber;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -10,10 +11,17 @@ public class RegisterActivity extends AppCompatActivity {
     EditText edUserre,edPassre,edPassre2,edAddress,edFirst,edLast;
     Button btnSub,btnCan;
 
+=======
+import android.widget.EditText;
+
+public class RegisterActivity extends AppCompatActivity {
+    EditText edt_Userregis,edt_Passregis,edt_Fnameregis,edt_Lnameregis;
+>>>>>>> refs/remotes/origin/master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+<<<<<<< HEAD
         edUserre = (EditText) findViewById(R.id.edUserre);
         edPassre = (EditText) findViewById(R.id.edPassre);
         edPassre2 = (EditText) findViewById(R.id.edPassre2);
@@ -54,5 +62,8 @@ public class RegisterActivity extends AppCompatActivity {
 //            Toast.makeText(RegisterActivity.this,"Password is not same",Toast.LENGTH_LONG);
 //        }
 
+=======
+        // TODO: 2/9/2017 AD : Tel Button and EditText
+>>>>>>> refs/remotes/origin/master
     }
 }
