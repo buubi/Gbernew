@@ -23,11 +23,15 @@ public class RegisterActivity extends AppCompatActivity {
         if(edUserre.length()==0) {
             Toast.makeText(RegisterActivity.this,"Please Enter Username",Toast.LENGTH_LONG);
             if(edPassre.length()==0){
-                Toast.makeText(RegisterActivity.this,"Please Enter Pass",Toast.LENGTH_LONG);
+                Toast.makeText(RegisterActivity.this,"Please Enter Password",Toast.LENGTH_LONG);
                 if(edPassre2.length()==0){
+                    Toast.makeText(RegisterActivity.this,"Please Enter Confirm Password",Toast.LENGTH_LONG);
                     if(edFirst.length()==0){
+                        Toast.makeText(RegisterActivity.this,"Please Enter FirstName",Toast.LENGTH_LONG);
                         if(edLast.length()==0){
+                            Toast.makeText(RegisterActivity.this,"Please Enter LastName",Toast.LENGTH_LONG);
                             if(edAddress.length()==0){
+                                Toast.makeText(RegisterActivity.this,"Please Enter Address",Toast.LENGTH_LONG);
 
                             }
                         }
